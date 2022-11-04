@@ -7,6 +7,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import {ProductListComponentModule} from "./components/product-list/product-list.component-module";
+import {ProductFormComponentModule} from "./components/product-form/product-form.component-module";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {ProductListComponentModule} from "./components/product-list/product-list
         provideFirebaseApp(() => initializeApp(environment.firebase)),
         provideFirestore(() => getFirestore()),
         ProductListComponentModule,
+        ProductFormComponentModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

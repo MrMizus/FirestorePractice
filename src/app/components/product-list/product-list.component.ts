@@ -15,4 +15,8 @@ export class ProductListComponent {
   constructor(private _productsService: ProductsService) {
   }
 
+  remove(name: string) {
+    this._productsService.delete(name)
+    console.log(name)
+  }
 }
