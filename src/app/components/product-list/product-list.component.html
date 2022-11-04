@@ -1,7 +1,7 @@
 <ul>
   <li *ngFor="let item of data$ | async">
     {{ item.name }}
-    <button (click)="remove(item.name)">
+    <button (click)="remove(item.id)">
       <p>Delete</p>
     </button></li>
 </ul>

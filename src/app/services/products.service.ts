@@ -18,12 +18,13 @@ export class ProductsService {
     }) as Observable<ProductsModel[]>;
   }
 
-  create(product: ProductsModel) {
+  create(product: Omit<ProductsModel, "id">){
     return of(addDoc(this.productsCollection, product));
   }
 
-  delete(name: string) {
-    const productDocumentReference = doc(this._firestore, `product/${name}`);
+  delete(id: string) {
+    const productDocumentReference = doc(this._firestore, `products/${id}`);
+    console.log(productDocumentReference)
     return of(deleteDoc(productDocumentReference));
   }
 }
