@@ -3,6 +3,7 @@ import {Observable, of} from 'rxjs';
 import { ProductsModel } from '../models/products.model';
 import { CollectionReference, addDoc, collection, doc, deleteDoc } from '@firebase/firestore';
 import { Firestore, collectionData } from '@angular/fire/firestore';
+import firebase from "firebase/compat";
 
 @Injectable()
 export class ProductsService {
@@ -18,13 +19,12 @@ export class ProductsService {
     }) as Observable<ProductsModel[]>;
   }
 
-  create(product: Omit<ProductsModel, "id">){
+  create(product: Omit<ProductsModel, "id">): Observable<any>{
     return of(addDoc(this.productsCollection, product));
   }
 
-  delete(id: string) {
+  delete(id: string): Observable<Promise<void>> {
     const productDocumentReference = doc(this._firestore, `products/${id}`);
-    console.log(productDocumentReference)
     return of(deleteDoc(productDocumentReference));
   }
 }

@@ -17,6 +17,5 @@ export class ProductListComponent {
 
   remove(id: string) {
     this._productsService.delete(id)
-    console.log(id)
   }
 }
