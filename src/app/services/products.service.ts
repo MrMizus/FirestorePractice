@@ -3,7 +3,6 @@ import {Observable, of} from 'rxjs';
 import { ProductsModel } from '../models/products.model';
 import { CollectionReference, addDoc, collection, doc, deleteDoc } from '@firebase/firestore';
 import { Firestore, collectionData } from '@angular/fire/firestore';
-import firebase from "firebase/compat";
 
 @Injectable()
 export class ProductsService {
